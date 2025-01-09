@@ -34,7 +34,7 @@ elif menu == "Pulser (MAX14813)":
     tx_spi_cs               = st.selectbox("SPI_CS", wifi_gpio_pins)
     tx_spi_clk              = st.number_input("SPI clk(MHz)", min_value=0.5, max_value=2.5, step=0.5)
     tx_pattern_time_period  = st.number_input("TX pattern time period (us)", min_value=500.0, max_value=1500.0, step=100.0)
-    tx_clk_in_freq          = st.number_input("TX clk out frequency (kHZ)", min_value=50.0, max_value=200.0, step=10.0)
+    tx_clk_in_freq          = st.number_input("TX clk frequency (kHZ)", min_value=50.0, max_value=200.0, step=10.0)
     pwt_length              = (tx_pattern_time_period/1000.0) * tx_clk_in_freq
     st.write(f"SPI_MOSI: {tx_spi_mosi} SPI_MISO: {tx_spi_miso}, pwt_length: {pwt_length}")
 
@@ -71,7 +71,7 @@ elif menu == "Wi-Fi Module":
 # Si5351 Section
 elif menu == "Si5351":
     st.header("Si5351 Configuration")
-    si_clk_in_freq = st.number_input("Clock in frequency (MHz)", min_value=1.0, max_value=20.0, step=1.0)
+    si_clk_in_freq = st.number_input("Clock in frequency (MHz)", min_value=120.0, max_value=200.0, step=5.0)
     si_num_out_clks = st.number_input("Num output clocks", min_value=1, max_value=10)
     si_clk_out_freq_val = [i for i in range(1, si_num_out_clks+1)]
     si_clk_out_freq_unit= [i for i in range(1, si_num_out_clks+1)]
